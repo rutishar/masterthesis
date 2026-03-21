@@ -1,0 +1,39 @@
+\chapter{Research Design}
+\label{chap:research_design}
+
+\section{Research Paradigm}
+\label{sec:paradigm}
+
+This research follows a \textbf{Design Science Research (DSR)} paradigm \citep{hevner2004design}, which is appropriate for the development and evaluation of IT artifacts in applied organizational contexts. The primary artifact is an AI-driven recommendation engine; the research contribution lies in both the artifact itself and the generalizable design knowledge extracted from its development and evaluation.
+
+\section{Research Type}
+\label{sec:type}
+
+This is an \textbf{application-oriented research} thesis in accordance with the FHNW MSc BIS regulations. It generates new knowledge in the area of business information systems, provides concrete business value to organizations managing CAPEX portfolios, and requires the rigorous application of research methods.
+
+\section{Methodology Overview}
+\label{sec:methodology}
+
+The research is structured in four iterative phases:
+
+\begin{enumerate}
+  \item \textbf{Knowledge Modeling:} Define a skill-demand ontology grounded in ESCO for the CAPEX domain. Map project phases, skill categories, and organizational resource pools into a knowledge graph.
+
+  \item \textbf{Demand Forecasting:} Develop and train machine learning models (e.g., gradient boosting, LSTM, Temporal Fusion Transformer) on historical project data to predict skill demand over time. Ontology embeddings from Phase 1 serve as structured input features.
+
+  \item \textbf{Bottleneck Detection and Allocation Optimization:} Design algorithms that identify anticipated resource scarcities and formulate constraint-aware allocation recommendations including make/buy/upskill options.
+
+  \item \textbf{Evaluation:} Assess the framework against baseline methods using forecasting accuracy metrics (MAE, RMSE), bottleneck detection lead time, and allocation efficiency indicators.
+\end{enumerate}
+
+\section{Data}
+\label{sec:data}
+
+% TODO: describe planned data sources
+% Options: anonymized historical project staffing data from a partner company,
+% synthetic data generated from industry benchmarks, or publicly available datasets.
+
+\section{Ethical Considerations}
+\label{sec:ethics}
+
+If real organizational data is used, appropriate data anonymization and confidentiality agreements will be established. The framework itself is designed to support — not replace — human decision-making, with explainability mechanisms to ensure transparency of recommendations.
