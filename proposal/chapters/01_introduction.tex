@@ -28,4 +28,17 @@ The increasing complexity of CAPEX portfolios, combined with growing talent scar
 
 Advances in AI — particularly the convergence of \textit{symbolic AI} (knowledge representations, ontologies) and \textit{subsymbolic AI} (data-driven machine learning, generative AI) into \textit{hybrid AI} approaches — offer a promising foundation for addressing this gap. Gartner identifies hybrid AI as an emerging technology trend with significant enterprise applicability \citep{gartner2024hype}. At the same time, structured knowledge sources such as the European Skills, Competences, Qualifications and Occupations ontology (\textbf{ESCO}, \url{https://esco.ec.europa.eu}) provide a standardized, machine-readable taxonomy of skills and occupations that can serve as a semantic backbone for resource planning systems.
 
-This thesis investigates how hybrid AI — combining ontology-based knowledge representation with data-driven forecasting and optimization — can power an intelligent recommendation engine for CAPEX resource management.
+\section{Methodological Foundation: The AI-4-SME Framework}
+\label{sec:ai4sme}
+
+This thesis adopts the \textbf{AI-4-SME Framework} \citep{peter2025ai4sme} — developed at FHNW School of Business — as its overarching methodological structure. The framework provides a three-phase approach to identifying, building, and deploying AI solutions in organizational contexts:
+
+\begin{description}
+  \item[Phase 1 — Design] AI-relevant opportunities are identified through analysis at the company level (products and services), the process level (knowledge- and data-intensive tasks), and the task level (solution ideas via design thinking). A central instrument is the distinction between \textit{Knowledge-Intensive Tasks} (KIAs) — requiring problem solving, analysis, and decision making — and \textit{Data-Intensive Tasks} (DIAs) — requiring data analysis and transaction processing. Resource demand forecasting and bottleneck detection map directly onto KIAs, while allocation optimization maps onto DIAs.
+
+  \item[Phase 2 — Build] The framework defines two implementation paths — a \textit{data-based path} (machine learning with frameworks such as TensorFlow or PyTorch) and a \textit{knowledge-based path} (knowledge graph systems such as Neo4j, GraphDB, Stardog, or RDFox) — which can be combined into a \textit{hybrid AI solution}. This thesis follows the hybrid path: ESCO-grounded knowledge graphs provide structured domain knowledge, while machine learning models capture temporal demand patterns from project data.
+
+  \item[Phase 3 — Run] The deployed system is integrated into the organization's productive environment, addressing corporate governance (GDPR, EU AI Act compliance), IT infrastructure, application-level API integration with ERP/PPM systems, and change management for human-AI collaboration.
+\end{description}
+
+This thesis investigates how hybrid AI — combining ontology-based knowledge representation with data-driven forecasting and optimization, structured according to the AI-4-SME framework — can power an intelligent recommendation engine for CAPEX resource management.

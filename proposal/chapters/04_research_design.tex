@@ -11,20 +11,42 @@ This research follows a \textbf{Design Science Research (DSR)} paradigm \citep{h
 
 This is an \textbf{application-oriented research} thesis in accordance with the FHNW MSc BIS regulations. It generates new knowledge in the area of business information systems, provides concrete business value to organizations managing CAPEX portfolios, and requires the rigorous application of research methods.
 
-\section{Methodology Overview}
-\label{sec:methodology}
+\section{Methodological Framework: AI-4-SME Design–Build–Run}
+\label{sec:ai4sme_structure}
 
-The research is structured in four iterative phases:
+The research adopts the \textbf{AI-4-SME Framework} \citep{peter2025ai4sme} as its overarching methodology, structuring the research process across three phases:
+
+\subsection*{Phase 1 — Design}
+
+Following the AI-4-SME framework, the design phase proceeds across three levels:
+
+\begin{itemize}
+  \item \textbf{Company level:} Identify CAPEX resource management as the strategic AI application domain. Assess the portfolio of resource planning tasks for AI suitability using the feasibility-vs-impact matrix.
+  \item \textbf{Process level:} Map the CAPEX project lifecycle as a process model. Identify KIAs (skill-demand forecasting, bottleneck detection) and DIAs (allocation optimization, capacity computation). Define overarching AI objectives using the Balanced Scorecard model.
+  \item \textbf{Task level:} Apply the six W-questions (What/Who/Why/When/Where/How) to define the point-of-view for each AI task. Generate solution ideas and select the hybrid AI approach based on effort-vs-benefit assessment.
+\end{itemize}
+
+\subsection*{Phase 2 — Build (Hybrid AI)}
+
+The build phase follows the hybrid path of the AI-4-SME process model, combining two parallel development streams:
 
 \begin{enumerate}
-  \item \textbf{Knowledge Modeling:} Define a skill-demand ontology grounded in ESCO for the CAPEX domain. Map project phases, skill categories, and organizational resource pools into a knowledge graph.
+  \item \textbf{Knowledge-based stream:} Acquire and represent domain knowledge using ESCO as the skill ontology backbone. Implement a knowledge graph using tools such as Neo4j or GraphDB. Evaluate the representation against coverage of CAPEX-relevant skill categories.
 
-  \item \textbf{Demand Forecasting:} Develop and train machine learning models (e.g., gradient boosting, LSTM, Temporal Fusion Transformer) on historical project data to predict skill demand over time. Ontology embeddings from Phase 1 serve as structured input features.
+  \item \textbf{Data-based stream:} Prepare historical project staffing data. Train and evaluate machine learning models (gradient boosting, LSTM, Temporal Fusion Transformer) for temporal skill-demand forecasting. Knowledge graph embeddings from the knowledge-based stream serve as structured input features.
 
-  \item \textbf{Bottleneck Detection and Allocation Optimization:} Design algorithms that identify anticipated resource scarcities and formulate constraint-aware allocation recommendations including make/buy/upskill options.
-
-  \item \textbf{Evaluation:} Assess the framework against baseline methods using forecasting accuracy metrics (MAE, RMSE), bottleneck detection lead time, and allocation efficiency indicators.
+  \item \textbf{Hybrid integration:} Combine both streams into a unified recommendation engine that integrates ontology-grounded skill representations with data-driven demand predictions and optimization-based allocation recommendations.
 \end{enumerate}
+
+\subsection*{Phase 3 — Run}
+
+The run phase assesses deployment readiness:
+
+\begin{itemize}
+  \item \textbf{Governance:} Evaluate compliance with GDPR and EU AI Act requirements (transparency, explainability, risk classification).
+  \item \textbf{IT integration:} Define the API interface for integration with ERP and PPM systems.
+  \item \textbf{Human-AI collaboration:} Design the recommendation interface to support — not replace — portfolio manager decision-making.
+\end{itemize}
 
 \section{Data}
 \label{sec:data}
