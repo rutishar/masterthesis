@@ -1,0 +1,85 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+\section{Motivation and Problem Statement}
+\label{sec:motivation}
+
+Capital Expenditure (CAPEX) portfolios in large organizations encompass dozens to hundreds of concurrent investment projects, each competing for a shared and finite pool of specialized resources. Unlike operational tasks, CAPEX projects — infrastructure upgrades, plant expansions, technology rollouts, or engineering programs — are characterized by long planning horizons, significant upfront commitments, and complex interdependencies between workstreams. A delay in one project can cascade across the entire portfolio, amplifying costs and disrupting strategic timelines.
+
+At the core of effective CAPEX portfolio execution lies the question of \textit{resource allocation}: which personnel, with which skills, are needed where, and when? This seemingly operational question has profound strategic consequences. Skills in areas such as civil engineering, electrical systems integration, or project controls are neither fungible nor immediately scalable. When demand for a specific competency peaks simultaneously across multiple projects — a phenomenon known as a \textit{resource bottleneck} — the resulting contention can stall progress on high-priority investments.
+
+Despite the magnitude of these risks, most organizations continue to rely on manual, spreadsheet-driven planning processes that lack the analytical depth to anticipate bottlenecks before they materialize. Current tools are largely reactive: they report shortages after scheduling conflicts have already occurred rather than forecasting them weeks or months in advance when corrective actions — such as contractor procurement, internal transfers, or scope adjustments — are still viable.
+
+This thesis addresses this gap by developing an AI-driven recommendation engine for resource demand forecasting and allocation optimization in CAPEX portfolio environments.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Research Objectives}
+\label{sec:research_objectives}
+
+This research pursues three interrelated objectives:
+
+\begin{enumerate}
+  \item \textbf{Temporal Skill-Demand Forecasting:} Develop models that predict the type, volume, and timing of skill requirements across project phases within a CAPEX portfolio.
+
+  \item \textbf{Proactive Bottleneck Identification:} Design algorithms that detect resource scarcities at sufficient lead time to enable proactive mitigation strategies.
+
+  \item \textbf{Optimized Allocation Recommendations:} Formulate and solve resource allocation problems that suggest the most efficient distribution of available resources while respecting organizational and project constraints.
+\end{enumerate}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Thesis Statement}
+\label{sec:thesis_statement}
+
+This thesis argues that an AI-driven recommendation engine — integrating temporal skill-demand forecasting, proactive bottleneck detection, and constraint-aware allocation optimization — can measurably improve resource planning outcomes in CAPEX portfolio management compared to conventional manual approaches. Specifically, the claim is that such a system enables earlier identification of resource scarcities and more efficient utilization of available competencies, thereby reducing project delays attributable to resource contention.
+
+% TODO: refine once methodology and evaluation are complete
+
+\section{Research Questions}
+\label{sec:research_questions}
+
+The following research questions guide this work:
+
+\begin{description}
+  \item[RQ1] How can historical project data be leveraged to accurately forecast skill-specific resource demand across the lifecycle phases of CAPEX projects?
+
+  \item[RQ2] Which machine learning architectures are most suitable for temporal resource demand forecasting in the context of heterogeneous CAPEX portfolios?
+
+  \item[RQ3] How can detected demand forecasts be translated into actionable, constraint-aware allocation recommendations that support portfolio managers?
+
+  \item[RQ4] To what extent does an AI-driven recommendation approach outperform conventional manual planning methods in terms of bottleneck anticipation and resource utilization?
+\end{description}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Scope and Delimitations}
+\label{sec:scope}
+
+This thesis focuses on the strategic and tactical planning layers of resource management — specifically demand forecasting and allocation recommendation — rather than on real-time operational scheduling. The framework is designed to be organization-agnostic and generalizable across industry sectors where CAPEX portfolio management is practiced, though empirical evaluation is conducted in the context of \ldots % TODO: specify industry/case
+
+The following aspects are explicitly outside the scope of this thesis:
+\begin{itemize}
+  \item Individual project scheduling at the task level (Gantt-level granularity)
+  \item Financial capital allocation or CAPEX budget optimization
+  \item HR performance management or workforce development planning
+\end{itemize}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Thesis Structure}
+\label{sec:thesis_structure}
+
+The remainder of this thesis is organized as follows:
+
+\textbf{Chapter~\ref{chap:background}} establishes the theoretical and conceptual foundations of CAPEX portfolio management, resource planning, and AI-based forecasting and optimization.
+
+\textbf{Chapter~\ref{chap:related_work}} surveys existing literature and tools in the areas of project resource management, demand forecasting, and AI-based decision support systems.
+
+\textbf{Chapter~\ref{chap:methodology}} describes the research design, data sources, modeling approach, and evaluation strategy.
+
+\textbf{Chapter~\ref{chap:system_design}} presents the conceptual architecture of the proposed AI recommendation engine.
+
+\textbf{Chapter~\ref{chap:implementation}} details the technical implementation of the framework components.
+
+\textbf{Chapter~\ref{chap:evaluation}} reports the empirical evaluation results and benchmarks against baseline methods.
+
+\textbf{Chapter~\ref{chap:discussion}} interprets the findings, discusses limitations, and reflects on practical implications.
+
+\textbf{Chapter~\ref{chap:conclusion}} summarizes the contributions of this thesis and outlines directions for future research.
