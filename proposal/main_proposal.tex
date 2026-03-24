@@ -1,92 +1,81 @@
-\documentclass[12pt, a4paper]{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MSc BIS Thesis Proposal
+% Based on FHNW MSc BIS LaTeX Template (Thesis.cls)
+%
+% Author: Ramon Rutishauser
+% Matriculation Number: 21-492-137
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% ─── Packages ────────────────────────────────────────────────────────────────
-\usepackage[utf8]{inputenc}
+\documentclass[11pt, oneside]{Thesis}
+
+% ─── Additional packages not in Thesis.cls ────────────────────────────────────
 \usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage{amsmath, amssymb}
-\usepackage{csquotes}           % required by biblatex-apa (load before biblatex)
-\usepackage[style=apa,
-            backend=biber,
-            sortcites=true,
-            sorting=nyt]{biblatex}
-\addbibresource{references_proposal.bib}
-\usepackage{hyperref}
-\usepackage{cleveref}
-\usepackage{xcolor}
-\usepackage{acronym}
-\usepackage{fancyhdr}
 \usepackage{lmodern}
 \usepackage{microtype}
-\usepackage{appendix}
+\usepackage{array}
+\usepackage{xcolor}
 \usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 
-% ─── Page Geometry ───────────────────────────────────────────────────────────
-\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm}
-\setlength{\headheight}{14.5pt}  % suppress fancyhdr warning
-\onehalfspacing
+% ─── Glossary / Abbreviations ─────────────────────────────────────────────────
+\makeglossaries
+\input{chapters/05_abbreviations}   % defines all \newacronym entries
 
-% ─── Header / Footer ─────────────────────────────────────────────────────────
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[R]{\thepage}
-\fancyhead[L]{\nouppercase{\leftmark}}
-\renewcommand{\headrulewidth}{0.4pt}
+% ─── Thesis Variables ─────────────────────────────────────────────────────────
+\thesisTitle{AI-Driven Strategic Portfolio Alignment: Predictive Skill-Demand
+  Modeling and Prescriptive De-prioritization for CAPEX Project Portfolios}
+\supervisor{Dr.\ Emanuele Laurenzi}
+\supervisorURL{http://www.fhnw.ch}
+\cosupervisorfalse
+\degree{Master of Science in Business Information Systems}
+\authors{Ramon Rutishauser}
+\authorsURL{}
+\addresses{}
+\subject{}
+\keywords{}
 
-\fancypagestyle{plain}{%
-  \fancyhf{}
-  \fancyfoot[C]{\thepage}
-  \renewcommand{\headrulewidth}{0pt}
-}
-
-% ─── Hyperref ────────────────────────────────────────────────────────────────
+% ─── PDF Metadata ─────────────────────────────────────────────────────────────
 \hypersetup{
-  colorlinks = true,
-  linkcolor  = black,
-  citecolor  = black,
-  urlcolor   = blue,
-  pdftitle   = {Master Thesis Proposal: AI-Driven Strategic Portfolio Alignment: Predictive Skill-Demand Modeling and Prescriptive De-prioritization for CAPEX Project Portfolios},
-  pdfauthor  = {Ramon Rutishauser}
+  pdftitle  = {Master Thesis Proposal: AI-Driven Strategic Portfolio Alignment},
+  pdfauthor = {Ramon Rutishauser}
 }
 
-% ─────────────────────────────────────────────────────────────────────────────
+%─────────────────────────────────────────────────────────────────────────────
 \begin{document}
 
-% ─── Title Page ──────────────────────────────────────────────────────────────
+\frontmatter  % roman page numbering (i, ii, iii …)
+
+%─────────────────────────────────────────────────────────────────────────────
+%  TITLE PAGE  (custom layout matching FHNW Word template)
+%─────────────────────────────────────────────────────────────────────────────
 \begin{titlepage}
   \thispagestyle{empty}
 
-  % FHNW Logo — top, left-aligned, 13 cm wide (matches Word template)
-  \noindent\includegraphics[width=13cm]{figures/fhnw_logo}
+  % FHNW logo — left-aligned, 13 cm wide (matches Word template)
+  \noindent\includegraphics[width=13cm]{fhnw_hw}
 
   \vspace{1.8cm}
 
-  % Title — 36 pt, not bold, centred (CoverPageTitleofPaper)
   \begin{center}
+    % Title — 36 pt, not bold, centred
     {\fontsize{36}{44}\selectfont
      AI-Driven Strategic Portfolio Alignment\par}
 
     \vspace{0.9cm}
 
-    % Subtitle — 14 pt, not bold, centred (CoverPageSubTitle)
+    % Subtitle — 14 pt, not bold, centred
     {\large
      Predictive Skill-Demand Modeling and Prescriptive\\
      De-prioritization for CAPEX Project Portfolios\par}
 
     \vspace{1.4cm}
 
-    % Author — 14 pt, bold, centred (CoverPageAuthorName)
+    % Author — 14 pt, bold, centred
     {\large\bfseries Ramon Rutishauser\par}
 
     \vspace{0.25cm}
 
-    % Matriculation Number — normal, centred
+    % Matriculation number
     {\normalsize 21-492-137\par}
 
     \vspace{0.7cm}
@@ -97,93 +86,95 @@
 
   \vspace{0.9cm}
 
-  % Date — normal, left-aligned (CoverPageDate)
+  % Date — normal, left-aligned
   \noindent{\normalsize March 24, 2026\par}
 
   \vspace{0.9cm}
 
-  % Supervisors — normal, left-aligned (CoverPageSupervisor)
+  % Supervisors — normal, left-aligned
   \noindent{\normalsize
    Dr.\ Emanuele Laurenzi\\[0.2em]
    \textit{\textless Second Supervisor\textgreater}\par}
 
   \vfill
 
-  % Footer — bold, left-aligned (CoverPageFooter)
+  % Footer — bold, left-aligned
   \noindent{\normalsize\bfseries
    Master of Science in Business Information Systems\par}
 
   \vspace{0.5cm}
 \end{titlepage}
 
-% ─── Front Matter (roman page numbering) ─────────────────────────────────────
-\pagenumbering{roman}
+%─────────────────────────────────────────────────────────────────────────────
+%  STATEMENT OF AUTHENTICITY
+%─────────────────────────────────────────────────────────────────────────────
+\fillingPage{}
+\statementOfAuthenticity
 
-% ─── Statement of Authenticity ───────────────────────────────────────────────
-\chapter*{Statement of Authenticity}
-\addcontentsline{toc}{chapter}{Statement of Authenticity}
-\thispagestyle{plain}
-
-I confirm that this master thesis research was performed autonomously by myself using only the
-sources, aids and assistance stated in the report, and that quotes are readily identifiable as such.
-
-\vspace{3cm}
-
-\noindent\rule{8cm}{0.4pt}\\
-Date, First Name and Name
-
-\clearpage
-
-% ─── Abstract ────────────────────────────────────────────────────────────────
+%─────────────────────────────────────────────────────────────────────────────
+%  ABSTRACT
+%─────────────────────────────────────────────────────────────────────────────
+\fillingPage{}
+\abstractPage
 \chapter*{Abstract}
-\addcontentsline{toc}{chapter}{Abstract}
-\thispagestyle{plain}
-
 % TODO: Write abstract (approx. 150–250 words)
 \textit{Placeholder — write abstract here.}
-
 \clearpage
 
-% ─── Foreword / Acknowledgements (optional) ──────────────────────────────────
-% \chapter*{Foreword / Acknowledgements}
-% \addcontentsline{toc}{chapter}{Foreword / Acknowledgements}
-% \thispagestyle{plain}
-% TODO: Optional acknowledgements.
-% \clearpage
-
-% ─── Table of Contents ───────────────────────────────────────────────────────
+%─────────────────────────────────────────────────────────────────────────────
+%  TABLE OF CONTENTS
+%─────────────────────────────────────────────────────────────────────────────
 \tableofcontents
-\clearpage
 
-% ─── Main Matter (arabic page numbering) ─────────────────────────────────────
-\pagenumbering{arabic}
+%─────────────────────────────────────────────────────────────────────────────
+%  MAIN MATTER
+%─────────────────────────────────────────────────────────────────────────────
+\mainmatter  % arabic page numbering (1, 2, 3 …)
 
+\fillingPage{}
 \input{chapters/01_introduction}
+
+\fillingPage{}
 \input{chapters/02_literature_review}
+
+\fillingPage{}
 \input{chapters/03_research_method}
+
+\fillingPage{}
 \input{chapters/04_conclusion}
 
-% ─── Bibliography ────────────────────────────────────────────────────────────
-\clearpage
-\addcontentsline{toc}{chapter}{References}
-\printbibliography[title={References}]
+%─────────────────────────────────────────────────────────────────────────────
+%  BIBLIOGRAPHY
+%─────────────────────────────────────────────────────────────────────────────
+\fillingPage{}
+\listOfBibliography
 
-% ─── Abbreviations ───────────────────────────────────────────────────────────
-\input{chapters/05_abbreviations}
+%─────────────────────────────────────────────────────────────────────────────
+%  ABBREVIATIONS
+%─────────────────────────────────────────────────────────────────────────────
+\fillingPage{}
+\listOfAbbreviation
 
-% ─── List of Figures ─────────────────────────────────────────────────────────
-\clearpage
-\addcontentsline{toc}{chapter}{List of Figures}
-\listoffigures
+%─────────────────────────────────────────────────────────────────────────────
+%  LIST OF FIGURES
+%─────────────────────────────────────────────────────────────────────────────
+\fillingPage{}
+\listOfFigures
 
-% ─── List of Tables ──────────────────────────────────────────────────────────
-\clearpage
-\addcontentsline{toc}{chapter}{List of Tables}
-\listoftables
+%─────────────────────────────────────────────────────────────────────────────
+%  LIST OF TABLES
+%─────────────────────────────────────────────────────────────────────────────
+\fillingPage{}
+\listOfTables
 
-% ─── Appendix ────────────────────────────────────────────────────────────────
-\begin{appendices}
-  \input{chapters/06_appendix}
-\end{appendices}
+%─────────────────────────────────────────────────────────────────────────────
+%  APPENDIX
+%─────────────────────────────────────────────────────────────────────────────
+\appendix
+
+\fillingPage{}
+\input{chapters/06_appendix}
+
+\backmatter
 
 \end{document}
