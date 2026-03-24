@@ -1,0 +1,226 @@
+\chapter{Research Method}
+\label{chap:research_method}
+
+The purpose of this chapter is to describe the research design and convince the reader that it is
+appropriate to answer the research questions and validate the thesis statement. The chapter follows
+the structure of the Research Onion, presenting only the choices made for this study.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Research design choices}
+  \label{tab:research_choices}
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Layer}                & \textbf{Choice} \\
+    \midrule
+    Philosophy (only 1)           & Pragmatism \\
+    Approach (only 1)             & Abductive \\
+    Methodological Choice (only 1)& Mono — Quantitative (artifact + evaluation) \\
+    Strategy (only 1)             & Design Science Research (DSR) \\
+    Time Horizon (only 1)         & Cross-sectional \\
+    Data Collection (1 or more)   & Historical staffing data; expert interviews \\
+    Data Analysis (1 or more)     & ML model training \& evaluation; thematic coding \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Philosophy}
+\label{sec:philosophy}
+
+The philosophical stance for this research is \textbf{pragmatism}. Pragmatism is appropriate
+because the primary aim is to develop a working artifact (the hybrid AI recommendation engine)
+that solves a concrete organizational problem. Truth is assessed by practical outcomes — whether
+the system demonstrably improves bottleneck anticipation — rather than by adherence to a single
+ontological or epistemological paradigm. This stance allows combining qualitative domain
+knowledge elicitation (symbolic AI design) with quantitative model evaluation (subsymbolic AI
+training and testing).
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Approach}
+\label{sec:approach}
+
+An \textbf{abductive} approach is followed: starting from observed anomalies in CAPEX resource
+planning practice, the research moves iteratively between theory (ontologies, ML forecasting
+literature) and empirical data (project staffing records) to build and refine the best
+explanatory model. This differs from pure induction (no prior theory) and pure deduction
+(testing a fixed hypothesis without iteration), matching the iterative nature of Design Science
+Research cycles.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Methodological Choice}
+\label{sec:methodological_choice}
+
+The methodological choice is \textbf{mono-method with a quantitative emphasis}: the core
+research activity is the design, implementation, and quantitative evaluation of an IT artifact.
+Qualitative elements (expert interviews for domain knowledge acquisition and requirements
+validation) are used instrumentally within the DSR process and do not constitute a separate
+research strand.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Strategy}
+\label{sec:strategy}
+
+The strategy is \textbf{Design Science Research (DSR)} \citep{hevner2004design}, which is
+appropriate for the development and evaluation of IT artifacts in applied organizational
+contexts. The primary artifact is the hybrid AI recommendation engine; the research contribution
+lies in both the artifact itself and the generalizable design knowledge extracted from its
+development and evaluation. DSR is structured around three cycles: the \textit{Relevance Cycle}
+(problem and requirements from practice), the \textit{Design Cycle} (build and evaluate),
+and the \textit{Rigor Cycle} (grounding in existing knowledge base). This maps directly onto
+the AI-4-SME Design–Build–Run phases \citep{peter2025ai4sme}.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Time Horizon}
+\label{sec:time_horizon}
+
+The time horizon is \textbf{cross-sectional}: data collection, model training, and evaluation
+are performed within a defined period (approx.\ January 2026 to September 2026). This restricts
+the ability to capture long-term adoption trends and reduces generalizability of performance
+results; this is explicitly acknowledged as a limitation (see Section~\ref{sec:delineations}).
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Data Collection}
+\label{sec:data_collection}
+
+Two data collection methods are used:
+
+\begin{enumerate}
+  \item \textbf{Historical project staffing data:} Anonymized records from a partner
+        organization (or synthetic benchmarks generated from industry data) covering project
+        metadata, role assignments, skill tags, and actuals vs.\ planned allocations. This
+        data underpins the quantitative demand forecasting models.
+
+  \item \textbf{Expert interviews / workshops:} Semi-structured interviews with portfolio
+        managers and resource planners to (a)~elicit domain knowledge for ontology design,
+        (b)~validate the recommendation engine output against expert judgment, and (c)~assess
+        perceived decision support quality. The following guiding questions structure the
+        interviews:
+\end{enumerate}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Interview guiding questions}
+  \label{tab:interview_questions}
+  \begin{tabular}{@{}p{9cm}p{5.5cm}@{}}
+    \toprule
+    \textbf{Question} & \textbf{Purpose} \\
+    \midrule
+    How do you currently identify upcoming resource bottlenecks in the portfolio? &
+    Understand baseline process and pain points \\[0.4em]
+    What data sources do you rely on for staffing decisions, and how reliable are they? &
+    Identify available data assets and quality issues \\[0.4em]
+    Which skill categories are most difficult to plan for and why? &
+    Prioritize ESCO coverage requirements \\[0.4em]
+    What would an ideal recommendation look like, and what would make you trust it? &
+    Define output requirements and explainability needs \\[0.4em]
+    What constraints (budget, regulation, HR policy) must any recommendation respect? &
+    Capture constraint requirements for allocation engine \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Data Analysis}
+\label{sec:data_analysis}
+
+\begin{itemize}
+  \item \textbf{Quantitative:} ML model training and evaluation using standard metrics
+        (MAE, RMSE for forecasting; precision/recall for bottleneck classification).
+        Comparison against a baseline (moving average / current ERP planning output).
+
+  \item \textbf{Qualitative:} Thematic coding of interview transcripts to extract design
+        requirements and validation feedback. Codes are organized around the six W-questions
+        of the AI-4-SME task design method.
+\end{itemize}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Methodological Framework: AI-4-SME Design--Build--Run}
+\label{sec:ai4sme_phases}
+
+The AI-4-SME Framework \citep{peter2025ai4sme} structures the research across three phases:
+
+\subsection*{Phase 1 — Design}
+
+\begin{itemize}
+  \item \textbf{Company level:} Identify CAPEX resource management as the strategic AI
+        application domain; assess tasks for AI suitability using the feasibility-vs-impact
+        matrix.
+  \item \textbf{Process level:} Map the CAPEX project lifecycle; identify KIAs
+        (skill-demand forecasting, bottleneck detection) and DIAs (allocation optimization,
+        capacity computation).
+  \item \textbf{Task level:} Apply the six W-questions to define the point-of-view for each
+        AI task; generate solution ideas and select the hybrid path based on effort-vs-benefit.
+\end{itemize}
+
+\subsection*{Phase 2 — Build (Hybrid AI)}
+
+\begin{enumerate}
+  \item \textbf{Knowledge-based stream:} Acquire and represent domain knowledge using ESCO
+        as the skill ontology backbone; implement a knowledge graph (Neo4j or GraphDB).
+  \item \textbf{Data-based stream:} Prepare historical staffing data; train and evaluate ML
+        models (gradient boosting, LSTM, Temporal Fusion Transformer) for temporal
+        skill-demand forecasting using knowledge graph embeddings as features.
+  \item \textbf{Hybrid integration:} Combine both streams into a unified recommendation
+        engine delivering ontology-grounded, data-driven allocation recommendations.
+\end{enumerate}
+
+\subsection*{Phase 3 — Run}
+
+\begin{itemize}
+  \item \textbf{Governance:} Evaluate GDPR and EU AI Act compliance (transparency,
+        explainability, risk classification).
+  \item \textbf{IT integration:} Define API interface for ERP and PPM system integration.
+  \item \textbf{Human-AI collaboration:} Design the recommendation interface to support —
+        not replace — portfolio manager decision-making.
+\end{itemize}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Work Plan, Milestones, and Risks}
+\label{sec:workplan}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Work packages and milestones}
+  \label{tab:workplan}
+  \begin{tabular}{@{}p{0.5cm}p{5.5cm}p{2.5cm}p{2cm}p{3cm}@{}}
+    \toprule
+    \textbf{\#} & \textbf{Task / Work Package} & \textbf{Output} &
+    \textbf{Duration} & \textbf{Milestone} \\
+    \midrule
+    1 & Literature review \& gap analysis           & Screened corpus, gap statement & 4 weeks  & M1: Literature finalized \\
+    2 & Domain knowledge elicitation (interviews)   & Interview data, ontology requirements & 3 weeks & M2: Requirements validated \\
+    3 & ESCO knowledge graph design \& build        & Knowledge graph prototype & 4 weeks  & M3: KG operational \\
+    4 & Data preparation \& feature engineering     & ML-ready dataset & 3 weeks  & \\
+    5 & ML model development \& training            & Trained forecasting models & 5 weeks  & M4: Models benchmarked \\
+    6 & Hybrid integration \& recommendation engine & Integrated prototype & 4 weeks  & M5: Prototype complete \\
+    7 & Evaluation \& expert validation             & Evaluation results & 3 weeks  & M6: Evaluation done \\
+    8 & Thesis writing \& revision                  & Final thesis document & 6 weeks  & M7: Thesis submitted \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\textbf{Key risks and dependencies:}
+
+\begin{itemize}
+  \item \textit{Data availability risk:} If real organizational data cannot be obtained,
+        synthetic data will be generated from published industry benchmarks.
+        (Mitigation: early agreement with partner organization; synthetic fallback planned.)
+  \item \textit{Ontology coverage risk:} ESCO may not cover highly specialized CAPEX roles.
+        (Mitigation: manual extension nodes linked to ESCO via \texttt{skos:broader}.)
+  \item \textit{Integration complexity:} Combining KG embeddings with ML pipelines requires
+        tight interface design. (Mitigation: modular architecture with defined APIs between
+        components.)
+  \item \textit{Expert availability:} Interview scheduling with senior portfolio managers
+        may be delayed. (Mitigation: recruit multiple candidates early; parallelize with
+        data preparation.)
+\end{itemize}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Ethical Considerations}
+\label{sec:ethics}
+
+If real organizational data is used, appropriate data anonymization and confidentiality agreements
+will be established in advance. The recommendation engine is designed to support — not replace —
+human decision-making, with explainability mechanisms ensuring transparency of recommendations.
+Compliance with GDPR and the EU AI Act is built into the Run phase of the AI-4-SME methodology.

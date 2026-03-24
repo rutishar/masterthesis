@@ -1,0 +1,153 @@
+\documentclass[12pt, a4paper, twoside]{report}
+
+% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{acronym}
+\usepackage{appendix}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+% ─── Page Geometry ───────────────────────────────────────────────────────────
+\geometry{
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  inner=3cm,
+  outer=2.5cm
+}
+
+% ─── Spacing ─────────────────────────────────────────────────────────────────
+\onehalfspacing
+
+% ─── Header / Footer ─────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ─── Hyperref Setup ──────────────────────────────────────────────────────────
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = black,
+  citecolor  = black,
+  urlcolor   = blue,
+  pdftitle   = {Test Title AI-Driven Resource Demand and Allocation Recommendation for CAPEX Portfolio Management},
+  pdfauthor  = {Ramon}
+}
+
+% ─── Listings (Code) ─────────────────────────────────────────────────────────
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange}
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ─── Title Page ──────────────────────────────────────────────────────────────
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+
+  {\LARGE\bfseries AI-Driven Resource Demand- and Allocation\\[0.5em]
+  Recommendation for CAPEX Portfolio Management\par}
+
+  \vspace{2cm}
+
+  {\large Master's Thesis\par}
+
+  \vspace{1cm}
+
+  {\large submitted by\par}
+  \vspace{0.5cm}
+  {\Large\bfseries Ramon\par}
+
+  \vfill
+
+  {\large \today\par}
+
+  \vspace{1cm}
+
+  {\large FHNW University of Applied Sciences and Arts\\
+  Northwestern Switzerland\\[0.3em]
+  School of Business\\[0.3em]
+  Master of Science in Business Information Systems\par}
+
+  \vspace{1cm}
+
+  {\small Supervised by:\\
+  % Prof.\ Dr.\ First Supervisor\\
+  % Second Supervisor (if applicable)
+  \par}
+\end{titlepage}
+
+% ─── Front Matter ────────────────────────────────────────────────────────────
+\pagenumbering{roman}
+
+\input{chapters/00_declaration}
+\input{chapters/00_abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\input{chapters/00_acronyms}
+
+\clearpage
+\pagenumbering{arabic}
+
+% ─── Main Chapters ───────────────────────────────────────────────────────────
+\input{chapters/01_introduction}
+\input{chapters/02_background}
+\input{chapters/03_related_work}
+\input{chapters/04_methodology}
+\input{chapters/05_system_design}
+\input{chapters/06_implementation}
+\input{chapters/07_evaluation}
+\input{chapters/08_discussion}
+\input{chapters/09_conclusion}
+
+% ─── Bibliography ────────────────────────────────────────────────────────────
+\clearpage
+\bibliographystyle{apalike}
+\bibliography{references}
+
+% ─── Appendix ────────────────────────────────────────────────────────────────
+\begin{appendices}
+  \input{chapters/appendix}
+\end{appendices}
+
+\end{document}

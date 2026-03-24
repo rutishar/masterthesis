@@ -1,44 +1,235 @@
-\chapter{Introduction and Problem Description}
+\chapter{Introduction}
 \label{chap:introduction}
 
-\section{Problem Context}
-\label{sec:context}
+Organizations executing large-scale Capital Expenditure (CAPEX) portfolios face a fundamental
+tension: multiple concurrent projects compete for the same finite pool of specialized engineering
+skills, yet conventional planning tools offer no objective mechanism for resolving these conflicts
+in a strategically coherent way. When resource shortfalls arise — as they inevitably do — portfolio
+managers must decide which projects continue uninterrupted and which are slowed down or paused.
+These decisions are today made largely through negotiation, intuition, and political influence
+rather than through systematic, data-driven analysis.
 
-Managing large-scale Capital Expenditure (CAPEX) portfolios requires the coordinated execution of numerous concurrent investment projects — infrastructure expansions, technology rollouts, engineering programs — each competing for a shared, finite pool of specialized human resources. A central challenge in this environment is the lack of \textit{forward-looking transparency} about which competencies are required, in what quantity, and at which point in the project lifecycle.
+The consequence is a persistent misalignment between strategic portfolio priorities and operational
+resource deployment. High-priority projects stall because critical specialists are committed
+elsewhere; lower-priority work consumes capacity that cannot be redirected in time. An AI-driven
+prescriptive framework that can objectively recommend which projects to suspend — and when to
+resume them — would allow organizations to actively govern this trade-off rather than merely react
+to it.
 
-Without such foresight, organizations struggle to ensure that projects are staffed with the right people at the right time. Bottlenecks emerge when demand for a specific skill — civil engineering, systems integration, project controls — peaks across multiple projects simultaneously. By the time these conflicts surface in conventional planning tools, the window for effective corrective action has already closed, leaving only costly remedies: emergency contracting, project scope reduction, or schedule slippage.
-
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Problem Statement}
-\label{sec:problem}
+\label{sec:problem_statement}
 
-Current resource planning in CAPEX portfolio environments is predominantly manual and reactive. Spreadsheet-based tools and generic Enterprise Resource Planning (ERP) modules lack the analytical capability to forecast skill-specific demand across a heterogeneous portfolio. As a result:
+Current resource management in CAPEX portfolio environments is predominantly reactive and
+subjective. Existing tools — spreadsheets, generic ERP modules, and project portfolio management
+(PPM) software — can visualize resource conflicts after they materialize, but they cannot
+prescribe which projects to pause or resume in order to maximize strategic value under binding
+resource constraints. As a result:
 
 \begin{itemize}
-  \item Resource bottlenecks are identified too late for proactive intervention.
-  \item Allocation decisions rely on intuition rather than data-driven optimization.
-  \item Strategic workforce options — hiring, contracting, upskilling — are not evaluated systematically.
+  \item Suspension and resumption decisions are made ad hoc, driven by seniority or urgency
+        rather than strategic portfolio alignment.
+  \item Specialized engineering skills are allocated to whichever project escalates first,
+        not to whichever project delivers the highest strategic return.
+  \item There is no systematic mechanism to evaluate the downstream impact of suspending a
+        project — on cost, schedule, risk, and overall portfolio value.
 \end{itemize}
 
-This creates a structural gap between the \textit{strategic intent} of portfolio planning and the \textit{operational reality} of resource availability.
+This gap is particularly acute in capital-intensive industries (energy, infrastructure,
+manufacturing) where CAPEX programs span multiple years, involve dozens of concurrent projects,
+and depend on a narrow set of scarce specialist roles (e.g., systems integrators, project
+controls engineers, domain architects). The inability to objectively arbitrate competing resource
+claims causes schedule slippage, budget overruns, and erosion of strategic intent.
 
-\section{Relevance and Motivation}
-\label{sec:motivation}
+Advances in prescriptive AI — combining optimization, simulation, and priority-scoring models —
+offer a principled foundation for automating these trade-off decisions \citep{gartner2024hype}.
+The AI-4-SME Framework \citep{peter2025ai4sme}, developed at FHNW School of Business, provides a
+structured methodology for designing and deploying such AI solutions in enterprise contexts.
 
-The increasing complexity of CAPEX portfolios, combined with growing talent scarcity in technical disciplines, makes this problem both timely and consequential. Organizations that can anticipate resource constraints early gain a measurable competitive advantage: they can decide proactively whether to \textit{make} (upskill existing employees), \textit{buy} (recruit), or \textit{borrow} (contract) the required competencies — rather than reacting under pressure.
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Thesis Statement, Research Questions and Objectives}
+\label{sec:thesis_rq_objectives}
 
-Advances in AI — particularly the convergence of \textit{symbolic AI} (knowledge representations, ontologies) and \textit{subsymbolic AI} (data-driven machine learning, generative AI) into \textit{hybrid AI} approaches — offer a promising foundation for addressing this gap. Gartner identifies hybrid AI as an emerging technology trend with significant enterprise applicability \citep{gartner2024hype}. At the same time, structured knowledge sources such as the European Skills, Competences, Qualifications and Occupations ontology (\textbf{ESCO}, \url{https://esco.ec.europa.eu}) provide a standardized, machine-readable taxonomy of skills and occupations that can serve as a semantic backbone for resource planning systems.
+\subsection*{Thesis Statement}
 
-\section{Methodological Foundation: The AI-4-SME Framework}
-\label{sec:ai4sme}
+This thesis investigates how an AI-driven prescriptive framework can be designed to support
+strategic resource governance in CAPEX portfolio management. The core mechanism under study is
+the generation of objective suspension-and-resumption recommendations: the system temporarily
+pauses lower-priority projects to free specialized engineering skills for projects of higher
+strategic importance, thereby preserving strategic alignment under binding resource constraints.
 
-This thesis adopts the \textbf{AI-4-SME Framework} \citep{peter2025ai4sme} — developed at FHNW School of Business — as its overarching methodological structure. The framework provides a three-phase approach to identifying, building, and deploying AI solutions in organizational contexts:
+The thesis statement is:
+\begin{quote}
+  \textit{The implementation of an AI-driven prescriptive framework secures the strategic
+  alignment of a CAPEX portfolio under resource constraints by generating objective
+  `suspension-and-resumption' recommendations. This process optimizes project execution by
+  temporarily pausing lower-priority tasks to release specialized engineering skills for
+  projects of higher strategic importance.}
+\end{quote}
+
+\subsection*{Research Questions}
+
+\noindent\textbf{Main Research Question:}
+\begin{quote}
+  How can an AI-supported prescriptive framework enhance the strategic alignment of a CAPEX
+  portfolio by automating project de-prioritization recommendations during specialized skill
+  shortages?
+\end{quote}
+
+\noindent\textbf{Sub-Questions:}
 
 \begin{description}
-  \item[Phase 1 — Design] AI-relevant opportunities are identified through analysis at the company level (products and services), the process level (knowledge- and data-intensive tasks), and the task level (solution ideas via design thinking). A central instrument is the distinction between \textit{Knowledge-Intensive Tasks} (KIAs) — requiring problem solving, analysis, and decision making — and \textit{Data-Intensive Tasks} (DIAs) — requiring data analysis and transaction processing. Resource demand forecasting and bottleneck detection map directly onto KIAs, while allocation optimization maps onto DIAs.
+  \item[SQ1] How can the temporal demand for specialized technical skill pools be accurately
+  modeled across a portfolio of 300+ ongoing projects?
 
-  \item[Phase 2 — Build] The framework defines two implementation paths — a \textit{data-based path} (machine learning with frameworks such as TensorFlow or PyTorch) and a \textit{knowledge-based path} (knowledge graph systems such as Neo4j, GraphDB, Stardog, or RDFox) — which can be combined into a \textit{hybrid AI solution}. This thesis follows the hybrid path: ESCO-grounded knowledge graphs provide structured domain knowledge, while machine learning models capture temporal demand patterns from project data.
+  \item[SQ2] How can a dynamic weighting framework (Multi-Criteria Decision Making) be
+  designed to integrate diverse and evolving importance indicators into an automated
+  de-prioritization logic?
 
-  \item[Phase 3 — Run] The deployed system is integrated into the organization's productive environment, addressing corporate governance (GDPR, EU AI Act compliance), IT infrastructure, application-level API integration with ERP/PPM systems, and change management for human-AI collaboration.
+  \item[SQ3] What is the impact of systematic project suspension and resumption on overall
+  resource availability and the successful execution of high-priority initiatives?
 \end{description}
 
-This thesis investigates how hybrid AI — combining ontology-based knowledge representation with data-driven forecasting and optimization, structured according to the AI-4-SME framework — can power an intelligent recommendation engine for CAPEX resource management.
+\subsection*{Research Objectives}
+
+\begin{enumerate}
+  \item Develop a strategic priority scoring model that quantifies the relative importance of
+        projects within a CAPEX portfolio across multiple dimensions (financial, strategic,
+        risk, time-criticality).
+  \item Design a prescriptive AI framework that combines priority scoring with resource
+        constraint modeling to generate suspension-and-resumption recommendations.
+  \item Implement a prototype of the framework and validate its recommendations against expert
+        judgment and simulated portfolio scenarios.
+  \item Derive generalizable design principles for AI-driven prescriptive systems in
+        resource-constrained portfolio management contexts.
+\end{enumerate}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Delineations and Limitations}
+\label{sec:delineations}
+
+\textbf{Delineations:}
+\begin{itemize}
+  \item The research focuses on CAPEX portfolio management in medium-to-large organizations;
+        micro-enterprises and purely operational (OPEX) contexts are excluded.
+  \item The prescriptive framework addresses \textit{suspension-and-resumption} decisions at
+        the project level; intra-project task scheduling (CPM/PERT) is outside scope.
+  \item The resource constraints considered are \textit{specialized human skills}; financial,
+        equipment, and infrastructure constraints are not modeled.
+  \item Empirical validation uses anonymized data from a partner organization or synthetic
+        portfolio scenarios; multi-industry generalization is a direction for future work.
+\end{itemize}
+
+\textbf{Limitations:}
+\begin{itemize}
+  \item The quality of recommendations depends on the accuracy and completeness of project
+        priority data, which may be politically sensitive or inconsistently defined in practice.
+  \item The study covers a defined research period; long-term organizational adoption and
+        behavioral change are not assessed.
+  \item The framework optimizes for strategic alignment as modeled; unmeasured organizational
+        factors (politics, client commitments) may override recommendations in practice.
+\end{itemize}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Assumptions}
+\label{sec:assumptions}
+
+The following assumptions are taken as true for the purpose of this study:
+
+\begin{itemize}
+  \item Organizations can define and quantify the strategic importance of their CAPEX projects,
+        even if the scoring model requires elicitation and calibration.
+  \item Project suspension and resumption are organizationally feasible actions — i.e., there
+        exist no absolute contractual or regulatory prohibitions preventing temporary pauses.
+  \item Specialized engineering skills are the binding resource constraint; other resources
+        (budget, equipment) are assumed not to be simultaneously binding.
+  \item Stakeholders and subject-matter experts who provide priority scores and validation
+        feedback respond honestly and to the best of their knowledge.
+  \item The AI-4-SME Framework \citep{peter2025ai4sme}, developed at FHNW, provides a
+        methodologically sound structure for the Design, Build, and Run phases of this research.
+  \item The regulatory environment (GDPR, EU AI Act) remains stable over the research period.
+\end{itemize}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Significance}
+\label{sec:significance}
+
+\textbf{Theoretical significance:}
+This study contributes to the body of knowledge in Business Information Systems by introducing a
+prescriptive AI approach to the problem of strategic resource governance in CAPEX portfolios. It
+extends existing work on resource-constrained project scheduling by incorporating strategic
+priority scoring as a first-class input to optimization, and by framing suspension-and-resumption
+as a deliberate governance mechanism rather than an exceptional response. The research also
+advances design science knowledge on how AI prescriptive systems can be constructed to produce
+explainable, actionable recommendations in high-stakes organizational settings.
+
+\textbf{Practical significance:}
+Portfolio managers in capital-intensive organizations gain a systematic, objective basis for
+making suspension-and-resumption decisions — reducing reliance on ad hoc negotiation and
+political influence. The framework enables proactive reallocation of scarce engineering talent
+to projects where it creates the most strategic value, directly reducing schedule slippage,
+budget overruns, and misalignment between investment intent and execution reality. Integration
+with existing ERP and PPM systems provides a pathway to operational adoption.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Chapter Map}
+\label{sec:chapter_map}
+
+\textbf{Chapter 1 — Introduction:}
+Introduces the research problem, background, thesis statement, research questions and objectives,
+delineations and limitations, assumptions, and significance of the study.
+
+\textbf{Chapter 2 — Literature Review:}
+Reviews existing work on CAPEX portfolio management, resource-constrained project scheduling,
+strategic priority scoring, and prescriptive AI. Identifies the research gap that motivates
+this thesis.
+
+\textbf{Chapter 3 — Research Method:}
+Describes the research design, philosophical stance, methodological choices, data collection
+and analysis strategy, and work plan including milestones, risks, and dependencies.
+
+\textbf{Chapter 4 — Conclusion:}
+Summarizes anticipated theoretical and practical contributions and outlines directions for
+future research.
+
+\vspace{1em}
+\noindent The graphical chapter map below illustrates the logical flow from the research questions
+to the thesis chapters:
+
+\vspace{1em}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, minimum width=3.8cm, minimum height=0.8cm,
+              text centered, font=\small},
+  rq/.style={draw, rounded corners, minimum width=3.5cm, minimum height=0.75cm,
+             text centered, font=\footnotesize, fill=gray!15},
+  arr/.style={->, thick}
+]
+  % Chapter 1
+  \node[box, fill=blue!10] (ch1) at (0,0) {Chapter 1: Introduction};
+
+  % SQ nodes
+  \node[rq] (sq1) at (-4.5,-2)  {SQ1: Skill demand modelling};
+  \node[rq] (sq2) at (0,-2)     {SQ2: MCDM weighting};
+  \node[rq] (sq3) at (4.5,-2)   {SQ3: Suspension impact};
+
+  \draw[arr] (ch1) -- (sq1);
+  \draw[arr] (ch1) -- (sq2);
+  \draw[arr] (ch1) -- (sq3);
+
+  % Chapter 2
+  \node[box, fill=green!10] (ch2) at (-3,-4) {Chapter 2: Literature Review};
+  \draw[arr] (sq1) -- (ch2);
+  \draw[arr] (sq2) -- (ch2);
+
+  % Chapter 3
+  \node[box, fill=orange!10] (ch3) at (3,-4) {Chapter 3: Research Method};
+  \draw[arr] (sq2) -- (ch3);
+  \draw[arr] (sq3) -- (ch3);
+
+  % Conclusion
+  \node[box, fill=red!10] (ch4) at (0,-6) {Chapter 4: Conclusion};
+  \draw[arr] (ch2) -- (ch4);
+  \draw[arr] (ch3) -- (ch4);
+\end{tikzpicture}
+\end{center}

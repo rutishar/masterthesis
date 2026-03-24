@@ -1,0 +1,397 @@
+\chapter{Literature Review}
+\label{chap:literature_review}
+
+The literature review maps the body of knowledge relevant to the research problem and
+systematically identifies the gap that motivates this thesis. Following a structured search
+strategy, the review synthesises seven thematic clusters: (A) CAPEX portfolio management and
+strategic alignment, (B) project preemption and suspension mechanisms, (C) resource-constrained
+project scheduling with skill considerations, (D) prescriptive analytics and AI-driven decision
+support, (E) multi-criteria decision making for project prioritisation, (F) workforce and skill
+demand forecasting, and (G) hybrid AI combining symbolic and subsymbolic methods. The chapter
+closes with a cross-cluster gap analysis that directly motivates the thesis research questions.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Search Strategy}
+\label{sec:search_strategy}
+
+The systematic search was conducted on \textbf{Scopus} as the primary academic database,
+supplemented by targeted searches on IEEE Xplore, ACM Digital Library, and INFORMS PubsOnline
+for conference and journal papers not fully indexed at the time of search. The search applied
+Boolean keyword combinations across seven thematic clusters, as summarised in
+Table~\ref{tab:keywords}. A two-stage screening procedure was applied: title and abstract
+screening followed by full-text relevance assessment. Only papers rated Medium or High
+relevance against the research questions were retained for synthesis.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Keyword clusters used in the systematic Scopus search}
+  \label{tab:keywords}
+  \small
+  \begin{tabular}{@{}lp{10.5cm}@{}}
+    \toprule
+    \textbf{Cluster} & \textbf{Search Terms} \\
+    \midrule
+    A — Portfolio & \texttt{CAPEX portfolio management}, \texttt{capital expenditure
+      portfolio}, \texttt{project portfolio strategic alignment},
+      \texttt{portfolio value optimisation} \\[0.3em]
+    B — Preemption & \texttt{project preemption}, \texttt{preemptive RCPSP},
+      \texttt{activity splitting}, \texttt{project suspension resumption} \\[0.3em]
+    C — RCPSP & \texttt{resource-constrained project scheduling},
+      \texttt{multi-skill scheduling}, \texttt{multi-project scheduling},
+      \texttt{skill-based resource allocation} \\[0.3em]
+    D — Prescriptive & \texttt{prescriptive analytics}, \texttt{decision support
+      resource allocation}, \texttt{from predictive to prescriptive} \\[0.3em]
+    E — MCDM & \texttt{MCDM project prioritisation}, \texttt{AHP TOPSIS portfolio},
+      \texttt{dynamic weighting strategic alignment} \\[0.3em]
+    F — Forecasting & \texttt{workforce skill demand forecasting},
+      \texttt{temporal skill modelling}, \texttt{labour demand machine learning} \\[0.3em]
+    G — Hybrid AI & \texttt{hybrid AI knowledge graph ontology},
+      \texttt{neuro-symbolic AI decision support}, \texttt{ESCO skill ontology} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{CAPEX Portfolio Management and Strategic Alignment}
+\label{sec:lit_capex}
+
+Project portfolio management (PPM) has evolved from a purely financial discipline into a
+strategic governance function concerned with selecting, prioritising, and terminating projects
+in ways that maximise organisational value \citep{hansen2022seven}. In a comprehensive
+bibliometric analysis spanning seven decades of PPM research, \citet{hansen2022seven} identify
+resource allocation under competing constraints and the dynamic re-alignment of portfolios to
+shifting strategic objectives as the two most persistently unresolved challenges in the field.
+This observation directly contextualises the present research: in CAPEX-intensive environments,
+resource conflicts among concurrent projects are structurally unavoidable, yet the literature
+offers no established automated mechanism for resolving them in a strategically consistent
+manner.
+
+\citet{hansen2023principles} extend this line of inquiry by deriving seventeen normative PPM
+principles organised around four semantic dimensions — portfolio value, strategic fit, balance,
+and adaptive capacity. Their work provides a principled basis for evaluating automated
+suspension-and-resumption recommendations: such recommendations should demonstrably improve
+strategic fit and portfolio balance, not merely minimise makespan or resource cost.
+
+At the level of individual portfolio optimisation models, \citet{chiang2013strategic} propose
+an integer programming formulation for IT project portfolios that integrates a strategic
+alignment score alongside expected benefits, development costs, and cross-project synergies.
+Their model demonstrates that explicit strategic scoring, rather than implicit proxy measures
+such as financial return, is essential for producing portfolios that genuinely reflect
+organisational priorities. The same principle applies to CAPEX portfolios, where strategic
+objectives — energy transition targets, regulatory compliance milestones, market positioning —
+are often only loosely coupled with financial metrics. More recently, \citet{rodriguezgarcia2025ai}
+extend this direction by combining machine learning with mathematical programming to
+simultaneously optimise for strategic factors and synergies; their empirical results show that
+strategy-aware portfolio selection consistently outperforms purely financial approaches, even
+under uncertainty.
+
+The growing complexity of CAPEX programmes — driven by regulatory pressures, talent scarcity,
+and technological change — is reflected in the most recent contribution by
+\citet{rodriguescoelho2025strategic}, who apply Structural Equation Modelling and Necessary
+Condition Analysis to demonstrate that PPM is a necessary but not sufficient mediator between
+organisational flexibility and value creation. The implication for AI-driven portfolio
+governance is significant: strategic alignment must be embedded not only as an objective
+function but as a hard constraint that any automated recommendation must respect.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Project Preemption and Suspension Mechanisms}
+\label{sec:lit_preemption}
+
+The concept of temporarily suspending an ongoing project activity to release a resource for
+a higher-priority demand has a formal treatment in the operations research literature under
+the label of \textit{preemption}. The foundational study by \citet{ballestin2008preemption}
+demonstrates that allowing even a single preemptive interruption within a resource-constrained
+project scheduling problem (RCPSP) yields statistically significant makespan reductions
+relative to purely non-preemptive schedules. This result establishes preemption as an
+operationally meaningful mechanism, not merely a theoretical relaxation.
+
+\citet{vanpeteghem2010genetic} extend this analysis to multi-mode RCPSP, showing that a
+genetic algorithm capable of selecting between preemptive and non-preemptive execution modes
+consistently produces superior schedules when resource availability is uneven across the
+planning horizon. Their work is particularly relevant to CAPEX portfolios, where the demand
+profile for specialised engineering skills fluctuates significantly across project lifecycle
+phases.
+
+The most practically relevant model for the present thesis is provided by
+\citet{hatamimoghaddam2024robust}, who introduce a robust multi-skill, multi-mode RCPSP
+formulation with partial preemption. In their model, an activity may be suspended precisely
+when a required skill set becomes unavailable within a specified time window, and resumed
+when the skill pool is replenished. This mechanism maps directly onto the
+suspension-and-resumption logic proposed in the thesis, with specialised engineering skill
+shortages serving as the trigger condition.
+
+\citet{vanhoucke2025impact} contribute a bi-criteria analysis examining the trade-off between
+makespan reduction and the number of interruptions induced by preemption in problems with
+time-varying resources. Their finding that optimal suspension frequency is sensitive to
+resource availability patterns suggests that a data-driven, dynamic policy — as proposed by
+the prescriptive AI framework in this thesis — is preferable to a static threshold-based rule.
+
+Collectively, this body of work establishes that project suspension is a formally sound and
+empirically effective mechanism for releasing constrained resources, yet existing models
+operate on single projects or small portfolios and employ rule-based or combinatorial triggers
+rather than strategic priority scoring. This is a first dimension of the research gap.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Resource-Constrained Project Scheduling with Skill Considerations}
+\label{sec:lit_rcpsp}
+
+The resource-constrained project scheduling problem (RCPSP) is one of the most extensively
+studied problems in operations research. \citet{artigues2025fifty} trace fifty years of RCPSP
+research, documenting the progression from exact branch-and-bound methods to metaheuristics,
+and from single-project formulations to the multi-skill, multi-project variants most relevant
+to contemporary CAPEX portfolio management. \citet{hartmann2022updated} provide a complementary
+decade-level update, identifying skill-based and multi-project RCPSP as the fastest-growing
+research sub-areas.
+
+For portfolios of the scale addressed in this thesis (300+ concurrent projects),
+\citet{gomez2023survey} demonstrate that shared resource pools across concurrent projects
+are the primary source of scheduling conflicts and that the resulting \textit{resource-constrained
+multi-project scheduling problem} (RCMPSP) is computationally intractable for exact methods
+at real-world scale. This motivates the use of heuristic and data-driven approaches.
+
+The modelling of human skill heterogeneity within RCPSP has received increasing attention.
+\citet{snauwaert2021algorithm} introduce a distinction between \textit{skill breadth} (the
+number of distinct skills an individual possesses) and \textit{skill depth} (proficiency level
+per skill), demonstrating that both dimensions independently affect assignment quality in a
+genetic algorithm framework. \citet{snauwaert2023classification} formalise a classification
+scheme for multi-skilled RCPSP (MSRCPSP) and release standardised benchmark instances, providing
+the empirical infrastructure needed for rigorous model evaluation. Their most recent contribution
+\citep{snauwaert2025hierarchical} introduces six MSRCPSP variants with hierarchical skill
+structures — where junior skills are subsumed by senior ones — directly mirroring the tiered
+engineering competency pools typical of large CAPEX programmes.
+
+The industrial feasibility of solving large-scale MSRCMPSP instances is demonstrated by
+\citet{torba2024reallife}, who address a real-world scheduling problem at SNCF heavy
+maintenance involving thousands of activities, multiple skill types, and weighted tardiness
+objectives. Their memetic algorithm solution approach is the closest real-world analogue to
+the computational context of the present thesis. Similarly, \citet{haroune2023multiproject}
+address multi-project assignment under shared employee skill pools with efficiency levels,
+minimising both weighted tardiness and goal deviations — a formulation that naturally
+accommodates project priority weights, linking Cluster C to the MCDM considerations of
+Cluster E.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Prescriptive Analytics and AI-Driven Decision Support}
+\label{sec:lit_prescriptive}
+
+Prescriptive analytics denotes the class of analytical methods that go beyond description
+and prediction to generate actionable recommendations — that is, explicit decisions or
+interventions designed to achieve a specified objective under identified constraints
+\citep{lepenioti2020prescriptive}. In their systematic review of 56 key papers,
+\citet{lepenioti2020prescriptive} identify resource allocation as the primary application
+domain of prescriptive methods and distinguish three core technical approaches: optimisation,
+simulation, and heuristic rule learning. \citet{frazzetto2019prescriptive} complement this
+picture from a data management perspective, identifying constraint satisfaction, optimisation,
+and simulation as the architectural pillars of any prescriptive analytics system — a
+decomposition that maps directly onto the design components of the proposed framework.
+
+The theoretical foundation for embedding prediction within optimisation is provided by
+\citet{bertsimas2020predictive}, who formalise the transition from predictive to prescriptive
+analytics and introduce the \textit{coefficient of prescriptiveness} as a performance measure
+capturing the value added by incorporating predictions into decisions. Their framework is
+particularly relevant to the thesis's analytics chain: temporal skill demand forecasts (the
+predictive layer) are the principal input to the suspension-and-resumption optimisation (the
+prescriptive layer).
+
+\citet{wissuchek2025prescriptive} offer the most recent and comprehensive systems-theoretic
+treatment of prescriptive analytics systems (PAS), identifying 23 architectural components
+including data pipeline, intervention model, feedback mechanism, and explainability layer.
+Their analysis reveals that few existing PAS implementations address multi-objective portfolio
+decisions with dynamic constraint sets — precisely the configuration required for CAPEX
+resource governance. \citet{misic2020analytics} further contextualise prescriptive methods
+within the broader operations management literature, noting that their comparative advantage
+over predictive methods is most pronounced when decision windows are short and resource
+constraints are binding, which is consistently the case in CAPEX portfolio management.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Multi-Criteria Decision Making for Project Prioritisation}
+\label{sec:lit_mcdm}
+
+Project prioritisation in the context of competing resource constraints is inherently a
+multi-criteria problem: strategic importance, financial return, regulatory urgency,
+stakeholder commitment, and execution risk are incommensurable attributes that must be
+integrated into a single ranking or weighting scheme. \citet{kandakoglu2024mcdm} conduct a
+systematic literature review of MCDM methods applied to project portfolio selection, covering
+the Analytic Hierarchy Process (AHP), PROMETHEE, TOPSIS, and Data Envelopment Analysis (DEA).
+A central finding of their review is that \textit{dynamic re-prioritisation under constraint
+changes} is an open research problem: existing MCDM applications to PPM are almost uniformly
+static, producing a priority ordering at a single point in time rather than continuously
+updating weights as resource availability and strategic context evolve. This constitutes a
+second dimension of the research gap.
+
+\citet{chatterjee2018fuzzy} address the treatment of linguistic uncertainty in expert
+prioritisation judgements through fuzzy AHP. Their contribution is methodologically important
+for the present thesis: criteria weights assigned by portfolio managers are inherently
+imprecise and may change over time, requiring a weighting framework that accommodates
+vagueness without reducing to arbitrary scores. The dynamic extension of this approach — where
+fuzzy weights are recalibrated in response to changing resource conditions and project progress
+— forms the conceptual basis of Sub-Question 2.
+
+The application of MCDM to capital-intensive industrial portfolios is examined by
+\citet{alhashimi2017mcdm}, who compare the output coherence of AHP, PROMETHEE, and TOPSIS
+applied to oilfield CAPEX portfolio prioritisation. Their key finding — that method output
+coherence is high when criteria weights are well-calibrated but diverges under expert
+disagreement — underscores the need for systematic weight elicitation and sensitivity
+analysis in any automated de-prioritisation system.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Workforce and Skill Demand Forecasting}
+\label{sec:lit_forecasting}
+
+Accurately modelling the temporal demand for specialised skill pools is a prerequisite for
+any anticipatory suspension-and-resumption mechanism. Without a reliable forecast of when
+and where skill shortages will materialise, suspension recommendations can only be generated
+reactively — after conflicts have already disrupted project execution. \citet{safarishahrbijari2018workforce}
+provide a systematic review of workforce forecasting models, covering time series methods,
+Markov chain approaches, system dynamics, and discrete event simulation. Their taxonomy
+reveals a consistent pattern: models that integrate demand-side dynamics (project workload
+profiles) with supply-side constraints (skill availability, attrition, hiring lead times)
+outperform demand-only models in medium-to-long forecast horizons. For a 300+ project
+portfolio with overlapping lifecycle phases, such integrated modelling is essential.
+
+At the intersection of deep learning and skill demand forecasting, \citet{macedo2022skills}
+apply recurrent neural networks (LSTM) to a decade of monthly skill demand observations,
+demonstrating that multivariate models capturing inter-skill correlations outperform
+univariate baselines in multi-step forecasting tasks. Their work provides empirical evidence
+that the temporal skill demand patterns required by Sub-Question 1 are learnable from
+historical project staffing data, subject to sufficient data quality and volume.
+
+Temporal Fusion Transformers \citep{lim2021tft} represent the current state of the art for
+multi-horizon time series forecasting with mixed-frequency inputs and static covariates.
+Their architecture — combining multi-head attention for long-range dependencies with
+interpretable variable selection — is a natural candidate for skill demand forecasting in
+CAPEX portfolios, where project metadata (type, phase, contractual milestones) constitutes
+structured static covariates that modulate temporal demand patterns.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Hybrid AI: Symbolic, Subsymbolic, and Their Integration}
+\label{sec:lit_hybrid_ai}
+
+A recurring limitation of purely data-driven approaches in enterprise decision support is
+their dependence on the statistical regularity of historical data. In domains characterised
+by low data volume, high structural complexity, or rapidly changing operational contexts —
+all of which apply to CAPEX portfolio management — subsymbolic models alone are insufficient.
+The paradigm of \textit{hybrid AI} addresses this limitation by combining the complementary
+strengths of symbolic and subsymbolic methods \citep{garcez2022neurosymbolic}.
+
+\textbf{Symbolic AI} encompasses methods that operate on explicit, human-interpretable
+representations of knowledge: ontologies, rule systems, logic programs, and knowledge graphs.
+Symbolic methods are inherently interpretable, capable of encoding domain constraints
+formally, and effective in low-data regimes. Their weakness is brittleness: they cannot
+generalise beyond explicitly encoded knowledge and fail gracefully when assumptions are
+violated.
+
+\textbf{Subsymbolic AI} encompasses statistical learning methods — including classical machine
+learning, deep learning, and generative AI — that extract patterns from data without explicit
+symbolic encoding. Subsymbolic models are powerful pattern recognisers that generalise to
+unseen inputs, but they lack interpretability, require large training sets, and cannot natively
+incorporate hard domain constraints.
+
+\textbf{Hybrid AI} combines both paradigms, typically by using structured symbolic knowledge
+to constrain, enrich, or initialise subsymbolic learning processes. Gartner identifies hybrid
+AI as an emerging high-value technology trend in enterprise AI adoption, highlighting its
+particular relevance for domains where domain expertise must be preserved while adapting to
+changing data distributions \citep{gartner2024hype}. \citet{garcez2022neurosymbolic} formalise
+this integration as \textit{neurosymbolic AI}, demonstrating that combining neural learning
+with symbolic reasoning yields systems that are simultaneously more accurate and more
+interpretable than either component in isolation.
+
+In the context of this thesis, the hybrid AI architecture serves three distinct roles. First,
+a symbolic layer encodes domain knowledge about skill taxonomies, project types, and
+organisational constraints in a structured, machine-processable form. Second, a subsymbolic
+layer learns temporal demand patterns from historical project staffing data, with the symbolic
+layer providing structured features and constraint boundaries. Third, a prescriptive layer
+integrates both outputs into suspension-and-resumption recommendations that are both
+data-driven and domain-knowledge-compliant.
+
+\textbf{The ESCO Ontology} provides the symbolic backbone for skill representation in this
+framework. Developed by the European Commission, ESCO (European Skills, Competences,
+Qualifications and Occupations) is a multilingual, hierarchical taxonomy of over 13{,}900
+skills and competences formally linked to occupations and qualifications through a structured
+ontological hierarchy \citep{le2014esco}. ESCO's formal structure — skills organised into
+pillar hierarchies with defined relationships (\texttt{skos:broader},
+\texttt{skos:narrower}, \texttt{skos:related}) — makes it directly suitable as a semantic
+backbone for skill-demand modelling in CAPEX portfolios. Specifically, ESCO enables consistent
+skill labelling across heterogeneous project data sources, ontological inference of skill
+substitutability (i.e., which alternative skills can fulfil a demand when the primary skill
+is unavailable), and semantic enrichment of subsymbolic demand forecasting models through
+ontology embeddings.
+
+The AI-4-SME Framework \citep{peter2025ai4sme}, developed at FHNW School of Business,
+provides the overarching methodological structure for translating the hybrid AI architecture
+into an implementable solution. The framework's Design--Build--Run methodology distinguishes
+Knowledge-Intensive Activities (KIAs) — which require contextual judgement, problem solving,
+and expert knowledge — from Data-Intensive Activities (DIAs) — which require high-volume
+data processing and statistical learning. In the CAPEX resource management context, demand
+forecasting and strategic priority scoring are KIAs; allocation optimisation and constraint
+propagation are DIAs. The framework's hybrid build path, combining knowledge-based systems
+(Neo4j, GraphDB, Stardog) with data-based ML pipelines (TensorFlow, PyTorch), maps directly
+onto the proposed framework architecture.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Research Gap and Positioning}
+\label{sec:lit_gap}
+
+The synthesis of the seven clusters reveals a coherent set of gaps at the intersection of the
+reviewed domains. Table~\ref{tab:gap} summarises the state of knowledge per dimension and
+identifies the contribution of the present thesis.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Research gap summary across literature clusters}
+  \label{tab:gap}
+  \small
+  \begin{tabular}{@{}p{4.2cm}p{5.5cm}p{4.5cm}@{}}
+    \toprule
+    \textbf{Dimension} & \textbf{State of the Art} & \textbf{Gap / Thesis Contribution} \\
+    \midrule
+    Strategic alignment in PPM &
+    Static portfolio selection models with strategic scoring
+    \citep{chiang2013strategic, rodriguezgarcia2025ai} &
+    No dynamic, AI-driven re-alignment triggered by real-time skill shortages \\[0.4em]
+
+    Preemptive project scheduling &
+    Rule-based and combinatorial preemption models for single or small portfolios
+    \citep{ballestin2008preemption, hatamimoghaddam2024robust} &
+    No prescriptive AI layer translating portfolio-level strategic priorities into
+    suspension triggers \\[0.4em]
+
+    Multi-skill RCPSP at scale &
+    Heuristic and metaheuristic methods for industrial-scale instances
+    \citep{torba2024reallife, snauwaert2025hierarchical} &
+    No integration with strategic MCDM weighting or AI-driven priority scoring \\[0.4em]
+
+    Prescriptive analytics &
+    Theoretical frameworks and isolated domain applications
+    \citep{lepenioti2020prescriptive, wissuchek2025prescriptive} &
+    No PAS implementation for multi-project CAPEX suspension-and-resumption
+    decisions \\[0.4em]
+
+    MCDM for project prioritisation &
+    Static, point-in-time ranking with expert-elicited weights
+    \citep{kandakoglu2024mcdm, chatterjee2018fuzzy} &
+    No dynamic, continuously updated MCDM weighting framework responsive to
+    resource availability and project progress \\[0.4em]
+
+    Skill demand forecasting &
+    Temporal models for labour market or HR demand
+    \citep{safarishahrbijari2018workforce, macedo2022skills} &
+    No application to project-level, portfolio-wide skill pool demand across
+    300+ concurrent CAPEX projects \\[0.4em]
+
+    Hybrid AI in enterprise decision support &
+    Neurosymbolic frameworks and ESCO-based skill extraction
+    \citep{garcez2022neurosymbolic, gartner2024hype} &
+    No hybrid AI system combining ESCO ontology, temporal demand forecasting,
+    and prescriptive suspension optimisation in a unified CAPEX framework \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The overarching research gap can be stated as follows: \textit{no existing work unifies
+(1)~strategic priority scoring via dynamic MCDM, (2)~AI-driven temporal modelling of
+specialised skill pool demand, and (3)~prescriptive suspension-and-resumption optimisation
+into a single, operationally deployable framework for CAPEX portfolio management.} Each of
+the three components exists in isolation within its respective literature cluster; their
+integration, guided by the AI-4-SME framework and grounded in ESCO-based hybrid AI
+architecture, constitutes the novel contribution of this thesis.

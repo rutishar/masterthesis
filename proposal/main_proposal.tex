@@ -8,6 +8,8 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
 \usepackage{amsmath, amssymb}
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -19,6 +21,7 @@
 \usepackage{microtype}
 \usepackage{csquotes}
 \usepackage{appendix}
+\usepackage{tikz}
 
 % ─── Page Geometry ───────────────────────────────────────────────────────────
 \geometry{a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm}
@@ -31,6 +34,12 @@
 \fancyhead[L]{\nouppercase{\leftmark}}
 \renewcommand{\headrulewidth}{0.4pt}
 
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
 % ─── Hyperref ────────────────────────────────────────────────────────────────
 \hypersetup{
   colorlinks = true,
@@ -38,7 +47,7 @@
   citecolor  = black,
   urlcolor   = blue,
   pdftitle   = {Master Thesis Proposal: AI-Driven Resource Demand and Allocation Recommendation for CAPEX Portfolio Management},
-  pdfauthor  = {Ramon}
+  pdfauthor  = {Ramon Bischofberger}
 }
 
 % ─────────────────────────────────────────────────────────────────────────────
@@ -47,57 +56,103 @@
 % ─── Title Page ──────────────────────────────────────────────────────────────
 \begin{titlepage}
   \centering
-  \vspace*{2cm}
+  \vspace*{1cm}
 
   {\large\bfseries Master Thesis Proposal\par}
 
-  \vspace{1.5cm}
+  \vspace{0.8cm}
 
-  {\LARGE\bfseries AI-Driven Resource Demand- and Allocation\\[0.5em]
+  {\LARGE\bfseries AI-Driven Resource Demand and Allocation\\[0.4em]
   Recommendation for CAPEX Portfolio Management\par}
 
   \vspace{2cm}
 
-  {\large submitted by\par}
-  \vspace{0.5cm}
-  {\Large\bfseries Ramon\par}
-
-  \vspace{1.5cm}
-
-  {\large Supervisor:\\[0.3em]
-  \textbf{Dr.\ Emanuele Laurenzi}\par}
+  \begin{tabular}{ll}
+    \textbf{Author:}             & Ramon Bischofberger \\[0.4em]
+    \textbf{Matriculation No.:}  & \textit{<Matriculation Number>} \\[1.2em]
+    \textbf{Supervisor:}         & Dr.\ Emanuele Laurenzi \\[0.4em]
+    \textbf{Second Supervisor:}  & \textit{<Second Supervisor>} \\
+  \end{tabular}
 
   \vfill
 
-  {\large FHNW University of Applied Sciences and Arts\\
-  Northwestern Switzerland\\
-  School of Business\\
-  Master of Science in Business Information Systems\par}
+  {\large FHNW University of Applied Sciences and Arts Northwestern Switzerland\\
+  School of Business\\[0.3em]
+  \textbf{Master of Science in Business Information Systems}\par}
 
   \vspace{1cm}
-  {\large \today\par}
+
+  {\large March 23, 2026\par}
 \end{titlepage}
 
-% ─── Front Matter ────────────────────────────────────────────────────────────
+% ─── Front Matter (roman page numbering) ─────────────────────────────────────
 \pagenumbering{roman}
+
+% ─── Statement of Authenticity ───────────────────────────────────────────────
+\chapter*{Statement of Authenticity}
+\addcontentsline{toc}{chapter}{Statement of Authenticity}
+\thispagestyle{plain}
+
+I confirm that this master thesis research was performed autonomously by myself using only the
+sources, aids and assistance stated in the report, and that quotes are readily identifiable as such.
+
+\vspace{3cm}
+
+\noindent\rule{8cm}{0.4pt}\\
+Date, First Name and Name
+
+\clearpage
+
+% ─── Abstract ────────────────────────────────────────────────────────────────
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\thispagestyle{plain}
+
+% TODO: Write abstract (approx. 150–250 words)
+\textit{Placeholder — write abstract here.}
+
+\clearpage
+
+% ─── Foreword / Acknowledgements (optional) ──────────────────────────────────
+% \chapter*{Foreword / Acknowledgements}
+% \addcontentsline{toc}{chapter}{Foreword / Acknowledgements}
+% \thispagestyle{plain}
+% TODO: Optional acknowledgements.
+% \clearpage
+
+% ─── Table of Contents ───────────────────────────────────────────────────────
 \tableofcontents
 \clearpage
+
+% ─── Main Matter (arabic page numbering) ─────────────────────────────────────
 \pagenumbering{arabic}
 
-% ─── Chapters ────────────────────────────────────────────────────────────────
 \input{chapters/01_introduction}
-\input{chapters/02_thesis_statement}
-\input{chapters/03_literature_review}
-\input{chapters/04_research_design}
+\input{chapters/02_literature_review}
+\input{chapters/03_research_method}
+\input{chapters/04_conclusion}
 
 % ─── Bibliography ────────────────────────────────────────────────────────────
 \clearpage
 \bibliographystyle{apalike}
 \bibliography{references_proposal}
 
+% ─── Abbreviations ───────────────────────────────────────────────────────────
+\input{chapters/05_abbreviations}
+
+% ─── List of Figures ─────────────────────────────────────────────────────────
+\clearpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+% ─── List of Tables ──────────────────────────────────────────────────────────
+\clearpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
 % ─── Appendix ────────────────────────────────────────────────────────────────
 \begin{appendices}
-  \input{chapters/appendix}
+  \input{chapters/06_appendix}
 \end{appendices}
 
 \end{document}
