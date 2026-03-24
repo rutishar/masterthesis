@@ -11,20 +11,25 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{amsmath, amssymb}
+\usepackage{csquotes}           % required by biblatex-apa (load before biblatex)
+\usepackage[style=apa,
+            backend=biber,
+            sortcites=true,
+            sorting=nyt]{biblatex}
+\addbibresource{references_proposal.bib}
 \usepackage{hyperref}
 \usepackage{cleveref}
-\usepackage{natbib}
 \usepackage{xcolor}
 \usepackage{acronym}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
 \usepackage{microtype}
-\usepackage{csquotes}
 \usepackage{appendix}
 \usepackage{tikz}
 
 % ─── Page Geometry ───────────────────────────────────────────────────────────
 \geometry{a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm}
+\setlength{\headheight}{14.5pt}  % suppress fancyhdr warning
 \onehalfspacing
 
 % ─── Header / Footer ─────────────────────────────────────────────────────────
@@ -46,8 +51,8 @@
   linkcolor  = black,
   citecolor  = black,
   urlcolor   = blue,
-  pdftitle   = {Master Thesis Proposal: AI-Driven Resource Demand and Allocation Recommendation for CAPEX Portfolio Management},
-  pdfauthor  = {Ramon Bischofberger}
+  pdftitle   = {Master Thesis Proposal: AI-Driven Strategic Portfolio Alignment: Predictive Skill-Demand Modeling and Prescriptive De-prioritization for CAPEX Project Portfolios},
+  pdfauthor  = {Ramon Rutishauser}
 }
 
 % ─────────────────────────────────────────────────────────────────────────────
@@ -56,33 +61,52 @@
 % ─── Title Page ──────────────────────────────────────────────────────────────
 \begin{titlepage}
   \centering
-  \vspace*{1cm}
+  \vspace*{2cm}
 
-  {\large\bfseries Master Thesis Proposal\par}
-
-  \vspace{0.8cm}
-
-  {\LARGE\bfseries AI-Driven Resource Demand and Allocation\\[0.4em]
-  Recommendation for CAPEX Portfolio Management\par}
-
-  \vspace{2cm}
-
-  \begin{tabular}{ll}
-    \textbf{Author:}             & Ramon Bischofberger \\[0.4em]
-    \textbf{Matriculation No.:}  & \textit{<Matriculation Number>} \\[1.2em]
-    \textbf{Supervisor:}         & Dr.\ Emanuele Laurenzi \\[0.4em]
-    \textbf{Second Supervisor:}  & \textit{<Second Supervisor>} \\
-  \end{tabular}
-
-  \vfill
-
-  {\large FHNW University of Applied Sciences and Arts Northwestern Switzerland\\
-  School of Business\\[0.3em]
-  \textbf{Master of Science in Business Information Systems}\par}
+  % Title (CoverPageTitleofPaper — 36 pt)
+  {\fontsize{36}{44}\selectfont
+   AI-Driven Strategic Portfolio Alignment\par}
 
   \vspace{1cm}
 
-  {\large March 23, 2026\par}
+  % Subtitle (CoverPageSubTitle — 14 pt)
+  {\large
+   Predictive Skill-Demand Modeling and Prescriptive\\
+   De-prioritization for CAPEX Project Portfolios\par}
+
+  \vspace{1.5cm}
+
+  % Author (CoverPageAuthorName — 14 pt)
+  {\large Ramon Rutishauser\par}
+
+  \vspace{0.3cm}
+
+  % Matriculation Number
+  {\normalsize 21-492-137\par}
+
+  \vspace{0.8cm}
+
+  % Document type
+  {\normalsize Master Thesis Proposal\par}
+
+  \vspace{0.8cm}
+
+  % Date (CoverPageDate)
+  {\normalsize March 24, 2026\par}
+
+  \vspace{1.2cm}
+
+  % Supervisors (CoverPageSupervisor)
+  {\normalsize
+   Dr.\ Emanuele Laurenzi\\[0.2em]
+   \textit{\textless Second Supervisor\textgreater}\par}
+
+  \vfill
+
+  % Footer (CoverPageFooter)
+  {\normalsize Master of Science in Business Information Systems\par}
+
+  \vspace{1cm}
 \end{titlepage}
 
 % ─── Front Matter (roman page numbering) ─────────────────────────────────────
@@ -134,8 +158,8 @@ Date, First Name and Name
 
 % ─── Bibliography ────────────────────────────────────────────────────────────
 \clearpage
-\bibliographystyle{apalike}
-\bibliography{references_proposal}
+\addcontentsline{toc}{chapter}{References}
+\printbibliography[title={References}]
 
 % ─── Abbreviations ───────────────────────────────────────────────────────────
 \input{chapters/05_abbreviations}
