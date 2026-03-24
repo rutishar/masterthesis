@@ -278,6 +278,15 @@ pythontex-files-*/
 # Latexian
 TSWLatexianTemp*
 
+## Claude Code
+.claude/
+
+## Temporary Office files
+~$*
+
+## Build directories
+proposal/build/
+
 ## Editors:
 # WinEdt
 *.bak
